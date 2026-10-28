@@ -24,7 +24,7 @@ const EMAIL = "hello@customeragent.si";
 function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [service, setService] = useState(SERVICES[0].title);
+  const [service, setService] = useState(SERVICES[0]?.title ?? "SEO");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
