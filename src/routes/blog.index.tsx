@@ -18,7 +18,8 @@ export const Route = createFileRoute("/blog/")({
 });
 
 function BlogPage() {
-  const [featured, ...rest] = POSTS;
+  const featured = POSTS[0]!;
+  const rest = POSTS.slice(1);
   return (
     <main>
       <section className="aurora grain relative overflow-hidden pb-14 pt-32 md:pt-44">
