@@ -20,6 +20,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 const EMAIL = "hello@customeragent.si";
+const CALENDLY_URL = "https://calendly.com/customeragent/30min?hide_gdpr_banner=1";
 
 function ContactPage() {
   const [name, setName] = useState("");
@@ -62,6 +63,21 @@ function ContactPage() {
             </p>
           </Reveal>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 pb-16 md:px-8">
+        <Reveal>
+          <div className="overflow-hidden rounded-4xl border border-border bg-card">
+            <div className="flex items-center gap-3 border-b border-border p-6 md:p-8">
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-signal-tint text-signal-deep"><CalendarCheck className="h-5 w-5" /></span>
+              <div>
+                <p className="font-display text-xl font-bold">Book a free 30-minute call</p>
+                <p className="text-sm text-muted-foreground">Pick a time that suits you — instant confirmation.</p>
+              </div>
+            </div>
+            <iframe title="Book a meeting with customeragent." src={CALENDLY_URL} className="h-[700px] w-full" loading="lazy" />
+          </div>
+        </Reveal>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pb-24 md:px-8 md:pb-32">
