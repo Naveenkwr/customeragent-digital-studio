@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, ArrowUpRight, Check, Sparkles, TrendingUp, Bot } from "lucide-react";
-import { Reveal, RevealWords, Counter } from "@/components/anim";
+import { Reveal, RevealWords, Counter, Magnetic, Tilt } from "@/components/anim";
 import { Marquee } from "@/components/marquee";
 import { SERVICES } from "@/lib/services";
 
@@ -68,10 +68,10 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={0.9} className="mt-10 flex flex-wrap items-center gap-4">
-          <Link to="/contact" className="btn-signal">
+          <Magnetic><Link to="/contact" className="btn-signal">
             Start a project
             <ArrowUpRight className="h-4 w-4" />
-          </Link>
+          </Link></Magnetic>
           <Link to="/services" className="btn-outline">
             See what we do
             <ArrowRight className="h-4 w-4" />
@@ -187,7 +187,7 @@ function WhatWeOffer() {
 
       <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {SERVICES.map((service, i) => (
-          <Reveal key={service.id} delay={i * 0.06}>
+          <Reveal key={service.id} delay={i * 0.06}><Tilt className="h-full">
             <Link
               to="/services"
               className="group flex h-full flex-col rounded-3xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-signal/50 hover:shadow-[var(--shadow-lift)]"
@@ -203,7 +203,7 @@ function WhatWeOffer() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {service.description.split(".")[0]}.
               </p>
-            </Link>
+            </Link></Tilt>
           </Reveal>
         ))}
       </div>

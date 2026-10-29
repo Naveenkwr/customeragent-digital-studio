@@ -151,3 +151,50 @@ export function Parallax({
 }
 
 export { motion, EASE };
+
+/** Element gently follows the cursor while hovered. */
+export function Magnetic({ children, strength = 0.3, className }: { children: ReactNode; strength?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  return (
+    <motion.div
+      ref={ref}
+      className={cn("inline-flex", className)}
+      onMouseMove={(e) => {
+        const r = ref.current?.getBoundingClientRect();
+        if (!r) return;
+        setPos({ x: (e.clientX - r.left - r.width / 2) * strength, y: (e.clientY - r.top - r.height / 2) * strength });
+      }}
+      onMouseLeave={() => setPos({ x: 0, y: 0 })}
+      animate={pos}
+      transition={{ type: "spring", stiffness: 220, damping: 14, mass: 0.4 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/** 3D tilt toward the cursor. */
+export function Tilt({ children, className, max = 8 }: { children: ReactNode; className?: string; max?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [rot, setRot] = useState({ rotateX: 0, rotateY: 0 });
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      style={{ transformPerspective: 900 }}
+      onMouseMove={(e) => {
+        const r = ref.current?.getBoundingClientRect();
+        if (!r) return;
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        setRot({ rotateX: -py * max, rotateY: px * max });
+      }}
+      onMouseLeave={() => setRot({ rotateX: 0, rotateY: 0 })}
+      animate={rot}
+      transition={{ type: "spring", stiffness: 200, damping: 18 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
