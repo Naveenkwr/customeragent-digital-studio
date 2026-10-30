@@ -41,10 +41,16 @@ function Hero() {
 
   return (
     <section ref={ref} className="aurora grain relative overflow-hidden pb-16 pt-32 md:pb-24 md:pt-44">
-      {/* slow-drifting green ambient blobs */}
+      {/* soft drifting green ambient blobs */}
       <div className="aurora-blob -left-24 -top-16 h-[26rem] w-[26rem]" aria-hidden />
       <div
         className="aurora-blob -right-32 top-64 h-[30rem] w-[30rem] [animation-delay:-6s] [animation-duration:24s]"
+        aria-hidden
+      />
+      {/* ultra-soft premium glow (white + faint green), extremely slow drift */}
+      <div className="hero-glow -left-[10%] -top-[14%] h-[36rem] w-[42rem]" aria-hidden />
+      <div
+        className="hero-glow -right-[12%] -bottom-[20%] h-[40rem] w-[46rem] [animation-delay:-18s] [animation-duration:54s]"
         aria-hidden
       />
 
