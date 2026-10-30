@@ -62,9 +62,7 @@ function Hero() {
             <br />
             <RevealWords text="Be chosen." delay={0.25} />
             <br />
-            <span className="text-signal-slow">
-              <RevealWords text="Be everywhere." delay={0.5} />
-            </span>
+            <RevealWords text="Be everywhere." delay={0.5} wordClassName="text-signal-slow" />
           </h1>
 
           <Reveal delay={0.75} className="mt-8 max-w-2xl">

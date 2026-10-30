@@ -45,12 +45,14 @@ export function RevealWords({
   delay = 0,
   stagger = 0.055,
   as: Tag = "span",
+  wordClassName,
 }: {
   text: string;
   className?: string;
   delay?: number;
   stagger?: number;
   as?: "span" | "div";
+  wordClassName?: string;
 }) {
   const words = text.split(" ");
   const MotionTag = motion[Tag];
@@ -68,7 +70,7 @@ export function RevealWords({
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden pb-[0.08em] -mb-[0.08em] align-bottom">
           <motion.span
-            className="inline-block will-change-transform"
+            className={cn("inline-block will-change-transform", wordClassName)}
             variants={{
               hidden: { y: "110%", opacity: 0 },
               visible: {
