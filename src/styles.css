@@ -293,6 +293,32 @@
   }
 }
 
+/* Ultra-soft premium hero glow (white + faint green) — extremely slow drift,
+   heavy blur, low opacity. Sits behind all hero content. */
+@utility hero-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(110px);
+  background:
+    radial-gradient(closest-side, oklch(1 0 0 / 50%), transparent 72%),
+    radial-gradient(closest-side, color-mix(in oklab, var(--signal) 12%, transparent), transparent 78%);
+  animation: hero-glow-float 42s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes hero-glow-float {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-2%, 5%, 0) scale(0.96);
+  }
+}
+
 /* Slow-drifting green ambient blob — used behind hero sections */
 @utility aurora-blob {
   position: absolute;

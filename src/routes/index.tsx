@@ -36,19 +36,25 @@ function Index() {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const artY = useTransform(scrollYProgress, [0, 1], [0, 90]);
-  const artOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.15]);
+  const artY = useTransform(scrollYProgress, [0, 1], [0, 56]);
+  const artOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.2]);
 
   return (
     <section ref={ref} className="aurora grain relative overflow-hidden pb-16 pt-32 md:pb-24 md:pt-44">
-      {/* slow-drifting green ambient blobs */}
+      {/* soft drifting green ambient blobs */}
       <div className="aurora-blob -left-24 -top-16 h-[26rem] w-[26rem]" aria-hidden />
       <div
         className="aurora-blob -right-32 top-64 h-[30rem] w-[30rem] [animation-delay:-6s] [animation-duration:24s]"
         aria-hidden
       />
+      {/* ultra-soft premium glow (white + faint green), extremely slow drift */}
+      <div className="hero-glow -left-[10%] -top-[14%] h-[36rem] w-[42rem]" aria-hidden />
+      <div
+        className="hero-glow -right-[12%] -bottom-[20%] h-[40rem] w-[46rem] [animation-delay:-18s] [animation-duration:54s]"
+        aria-hidden
+      />
 
-      <div className="relative z-[2] mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-8 md:grid-cols-[1.05fr_0.95fr] md:gap-10 lg:gap-12">
+      <div className="relative z-[2] mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-8 md:grid-cols-[1.1fr_0.9fr] md:gap-10 lg:gap-12">
         <div>
           <Reveal y={16}>
             <p className="flex items-center gap-3">
@@ -57,15 +63,13 @@ function Hero() {
             </p>
           </Reveal>
 
-          <h1 className="headline mt-6 text-[13vw] leading-[1.0] sm:text-6xl md:text-[4.6rem] lg:text-[5.2rem]">
-            <RevealWords text="Be found." />
+          <h1 className="headline mt-6 text-[13vw] leading-[0.98] sm:text-7xl md:text-[clamp(3.5rem,7.2vw,5.4rem)]">
+            <RevealWords text="Get found." />
             <br />
-            <RevealWords text="Be chosen." delay={0.25} />
-            <br />
-            <RevealWords text="Be everywhere." delay={0.5} wordClassName="text-signal-slow" />
+            <RevealWords text="Get chosen." delay={0.3} wordClassName="text-signal-slow" />
           </h1>
 
-          <Reveal delay={0.75} className="mt-8 max-w-2xl">
+          <Reveal delay={0.75} className="mt-8 max-w-xl">
             <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
               customeragent. is an AI-first growth agency. We get you ranked on Google,
               cited by ChatGPT, wrapped in a brand people remember — and we build the
@@ -85,9 +89,12 @@ function Hero() {
           </Reveal>
         </div>
 
-        {/* Floating answer-card artwork — right column */}
-        <motion.div style={{ y: artY, opacity: artOpacity }} className="relative z-[2]">
-          <Reveal delay={0.3} y={48}>
+        {/* Floating answer-card artwork — right column, balanced with the headline */}
+        <motion.div
+          style={{ y: artY, opacity: artOpacity }}
+          className="relative z-[2] flex w-full justify-center md:justify-end"
+        >
+          <Reveal delay={0.3} y={40} className="w-full max-w-[30rem] md:w-full lg:max-w-[33rem]">
             <div className="rounded-3xl border border-border bg-card/80 p-5 shadow-[var(--shadow-lift)] backdrop-blur-xl md:p-7">
               <div className="flex items-center justify-between">
                 <p className="flex items-center gap-2 text-sm font-semibold">
@@ -98,7 +105,7 @@ function Hero() {
                   live snapshot
                 </span>
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3">
+              <div className="mt-5 grid gap-3 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3">
                 <MiniStat
                   icon={<TrendingUp className="h-4 w-4" />}
                   label="Google ranking"
