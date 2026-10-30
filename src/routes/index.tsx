@@ -36,8 +36,8 @@ function Index() {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const artY = useTransform(scrollYProgress, [0, 1], [0, 90]);
-  const artOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.15]);
+  const artY = useTransform(scrollYProgress, [0, 1], [0, 56]);
+  const artOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.2]);
 
   return (
     <section ref={ref} className="aurora grain relative overflow-hidden pb-16 pt-32 md:pb-24 md:pt-44">
