@@ -48,7 +48,7 @@ function Hero() {
         aria-hidden
       />
 
-      <div className="relative z-[2] mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+      <div className="relative z-[2] mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-8 md:grid-cols-[1.05fr_0.95fr] md:gap-10 lg:gap-12">
         <div>
           <Reveal y={16}>
             <p className="flex items-center gap-3">
@@ -98,7 +98,7 @@ function Hero() {
                   live snapshot
                 </span>
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              <div className="mt-5 grid gap-3 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3">
                 <MiniStat
                   icon={<TrendingUp className="h-4 w-4" />}
                   label="Google ranking"
