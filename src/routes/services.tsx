@@ -57,24 +57,26 @@ function ServicesPage() {
           <Reveal key={service.id} delay={0.04}>
             <article
               id={service.id}
-              className={`grid gap-8 border-t border-border py-14 md:grid-cols-[110px_1.1fr_1fr] md:py-20 ${
-                i % 2 === 1 ? "md:grid-cols-[110px_1fr_1.1fr]" : ""
+              className={`grid items-start gap-8 border-t border-border py-14 md:py-20 ${
+                i % 2 === 1
+                  ? "md:grid-cols-[1fr_1.1fr_110px]"
+                  : "md:grid-cols-[110px_1.1fr_1fr]"
               }`}
             >
               <div
                 className={`font-display text-6xl font-bold tracking-tight text-signal md:text-7xl ${
-                  i % 2 === 1 ? "md:order-3 md:text-right" : ""
+                  i % 2 === 1 ? "md:col-start-3 md:text-right" : ""
                 }`}
               >
                 {service.index}
               </div>
-              <div className={i % 2 === 1 ? "md:order-2" : ""}>
+              <div className={i % 2 === 1 ? "md:col-start-2" : ""}>
                 <h2 className="headline text-3xl md:text-5xl">{service.title}</h2>
                 <p className="mt-2 text-lg font-semibold text-signal-deep">{service.tagline}</p>
                 <p className="mt-5 leading-relaxed text-muted-foreground">{service.description}</p>
               </div>
-              <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                <ul className="flex flex-col gap-3 rounded-3xl border border-border bg-card p-7">
+              <div className={`min-w-0 ${i % 2 === 1 ? "md:col-start-1" : ""}`}>
+                <ul className="flex flex-col gap-3 rounded-3xl border border-border bg-card p-6 lg:p-7">
                   {service.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-3 text-sm font-medium md:text-base">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-signal-tint">
