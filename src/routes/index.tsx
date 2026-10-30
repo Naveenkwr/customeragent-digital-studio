@@ -63,15 +63,13 @@ function Hero() {
             </p>
           </Reveal>
 
-          <h1 className="headline mt-6 text-[13vw] leading-[1.0] sm:text-6xl md:text-[4.6rem] lg:text-[5.2rem]">
-            <RevealWords text="Be found." />
+          <h1 className="headline mt-6 text-[15vw] leading-[0.98] sm:text-7xl md:text-[4.9rem] lg:text-[5.7rem] xl:text-[6.4rem]">
+            <RevealWords text="Get found." />
             <br />
-            <RevealWords text="Be chosen." delay={0.25} />
-            <br />
-            <RevealWords text="Be everywhere." delay={0.5} wordClassName="text-signal-slow" />
+            <RevealWords text="Get chosen." delay={0.3} wordClassName="text-signal-slow" />
           </h1>
 
-          <Reveal delay={0.75} className="mt-8 max-w-2xl">
+          <Reveal delay={0.75} className="mt-8 max-w-xl">
             <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
               customeragent. is an AI-first growth agency. We get you ranked on Google,
               cited by ChatGPT, wrapped in a brand people remember — and we build the
@@ -91,9 +89,12 @@ function Hero() {
           </Reveal>
         </div>
 
-        {/* Floating answer-card artwork — right column */}
-        <motion.div style={{ y: artY, opacity: artOpacity }} className="relative z-[2]">
-          <Reveal delay={0.3} y={48}>
+        {/* Floating answer-card artwork — right column, balanced with the headline */}
+        <motion.div
+          style={{ y: artY, opacity: artOpacity }}
+          className="relative z-[2] flex w-full justify-center md:justify-end"
+        >
+          <Reveal delay={0.3} y={40} className="w-full max-w-[30rem] md:w-full lg:max-w-[33rem]">
             <div className="rounded-3xl border border-border bg-card/80 p-5 shadow-[var(--shadow-lift)] backdrop-blur-xl md:p-7">
               <div className="flex items-center justify-between">
                 <p className="flex items-center gap-2 text-sm font-semibold">
