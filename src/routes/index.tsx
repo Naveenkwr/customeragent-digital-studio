@@ -41,47 +41,56 @@ function Hero() {
 
   return (
     <section ref={ref} className="aurora grain relative overflow-hidden pb-16 pt-32 md:pb-24 md:pt-44">
-      <div className="relative z-[2] mx-auto max-w-6xl px-5 md:px-8">
-        <Reveal y={16}>
-          <p className="flex items-center gap-3">
-            <span className="pulse-dot" aria-hidden />
-            <span className="eyebrow text-muted-foreground">AI-first growth agency · customeragent.si</span>
-          </p>
-        </Reveal>
+      {/* slow-drifting green ambient blobs */}
+      <div className="aurora-blob -left-24 -top-16 h-[26rem] w-[26rem]" aria-hidden />
+      <div
+        className="aurora-blob -right-32 top-64 h-[30rem] w-[30rem] [animation-delay:-6s] [animation-duration:24s]"
+        aria-hidden
+      />
 
-        <h1 className="headline mt-6 text-[13vw] leading-[1.0] sm:text-6xl md:text-[5.4rem] lg:text-[6.2rem]">
-          <RevealWords text="Be found." />
-          <br />
-          <RevealWords text="Be chosen." delay={0.25} />
-          <br />
-          <span className="text-signal">
-            <RevealWords text="Be everywhere." delay={0.5} />
-          </span>
-        </h1>
+      <div className="relative z-[2] mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+        <div>
+          <Reveal y={16}>
+            <p className="flex items-center gap-3">
+              <span className="pulse-dot" aria-hidden />
+              <span className="eyebrow text-muted-foreground">AI-first growth agency · customeragent.si</span>
+            </p>
+          </Reveal>
 
-        <Reveal delay={0.75} className="mt-8 max-w-2xl">
-          <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
-            customeragent. is an AI-first growth agency. We get you ranked on Google,
-            cited by ChatGPT, wrapped in a brand people remember — and we build the
-            agents that turn all that attention into revenue.
-          </p>
-        </Reveal>
+          <h1 className="headline mt-6 text-[13vw] leading-[1.0] sm:text-6xl md:text-[4.6rem] lg:text-[5.2rem]">
+            <RevealWords text="Be found." />
+            <br />
+            <RevealWords text="Be chosen." delay={0.25} />
+            <br />
+            <span className="text-signal-slow">
+              <RevealWords text="Be everywhere." delay={0.5} />
+            </span>
+          </h1>
 
-        <Reveal delay={0.9} className="mt-10 flex flex-wrap items-center gap-4">
-          <Magnetic><Link to="/contact" className="btn-signal">
-            Start a project
-            <ArrowUpRight className="h-4 w-4" />
-          </Link></Magnetic>
-          <Link to="/services" className="btn-outline">
-            See what we do
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
+          <Reveal delay={0.75} className="mt-8 max-w-2xl">
+            <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
+              customeragent. is an AI-first growth agency. We get you ranked on Google,
+              cited by ChatGPT, wrapped in a brand people remember — and we build the
+              agents that turn all that attention into revenue.
+            </p>
+          </Reveal>
 
-        {/* Floating answer-card artwork */}
-        <motion.div style={{ y: artY, opacity: artOpacity }} className="relative z-[2] mt-16 md:mt-24">
+          <Reveal delay={0.9} className="mt-10 flex flex-wrap items-center gap-4">
+            <Magnetic><Link to="/contact" className="btn-signal">
+              Start a project
+              <ArrowUpRight className="h-4 w-4" />
+            </Link></Magnetic>
+            <Link to="/services" className="btn-outline">
+              See what we do
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
+
+        {/* Floating answer-card artwork — right column */}
+        <motion.div style={{ y: artY, opacity: artOpacity }} className="relative z-[2]">
           <Reveal delay={0.3} y={48}>
-            <div className="mx-auto max-w-3xl rounded-3xl border border-border bg-card/80 p-5 shadow-[var(--shadow-lift)] backdrop-blur-xl md:p-7">
+            <div className="rounded-3xl border border-border bg-card/80 p-5 shadow-[var(--shadow-lift)] backdrop-blur-xl md:p-7">
               <div className="flex items-center justify-between">
                 <p className="flex items-center gap-2 text-sm font-semibold">
                   <Sparkles className="h-4 w-4 text-signal" />
@@ -91,7 +100,7 @@ function Hero() {
                   live snapshot
                 </span>
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <div className="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                 <MiniStat
                   icon={<TrendingUp className="h-4 w-4" />}
                   label="Google ranking"
